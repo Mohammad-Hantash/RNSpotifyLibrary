@@ -29,7 +29,7 @@ public class RNRnSpotifyLibraryModule extends ReactContextBaseJavaModule {
 
   @ReactMethod
   public void initialize(String clientId) {
-    final int imageSize = (int) getResources().getDimension(R.dimen.image_size);
+    //final int imageSize = (int) getResources().getDimension(R.dimen.image_size);
 
     if (mSpotifyAppRemote != null && mSpotifyAppRemote.isConnected()) {
       SpotifyAppRemote.CONNECTOR.disconnect(mSpotifyAppRemote);
@@ -40,7 +40,7 @@ public class RNRnSpotifyLibraryModule extends ReactContextBaseJavaModule {
             this.reactContext.getApplicationContext(),
             new ConnectionParams.Builder(clientId)
                     .setRedirectUri("comspotifytestsdk://callback")
-                    .setPreferredImageSize(imageSize)
+                    .setPreferredImageSize(0)
                     .showAuthView(true)
                     .build(),
             new Connector.ConnectionListener() {
